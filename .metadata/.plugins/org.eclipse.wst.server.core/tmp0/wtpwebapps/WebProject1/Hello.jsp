@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Hello JSP</h2>
+<h2>tomcat is working sucessfully</h2>
 </body>
 </html>
