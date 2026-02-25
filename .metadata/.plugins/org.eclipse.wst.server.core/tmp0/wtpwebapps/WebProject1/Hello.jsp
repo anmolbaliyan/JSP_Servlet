@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>tomcat is working sucessfully</h2>
+<h1>tomcat is working sucessfully</h1>
+<h2>thankyou</h2>
 </body>
 </html>
