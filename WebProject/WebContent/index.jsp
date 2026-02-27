@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-<h1> Welcome To First Project</h1>
-=======
-<h1> Welcome To First Project!!!!!!!</h1>
->>>>>>> master
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<h1>
+			<a href="WelcomeCtl">Online Result System</a>
+		</h1>
+	</div>
 </body>
 </html>

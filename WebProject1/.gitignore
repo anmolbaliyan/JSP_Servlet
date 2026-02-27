@@ -1,0 +1,8 @@
+.metadata/
+bin/
+build/
+target/
+tmp/
+wtpwebapps/
+*.log
+*.class

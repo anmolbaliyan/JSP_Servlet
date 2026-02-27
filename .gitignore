@@ -1,0 +1,20 @@
+# Eclipse metadata
+.metadata/
+
+# Tomcat runtime (Eclipse server)
+.metadata/.plugins/org.eclipse.wst.server.core/
+.metadata/.plugins/org.eclipse.core.resources/
+
+# Build folders
+bin/
+build/
+target/
+
+# Compiled files
+*.class
+
+# Logs
+*.log
+
+# Mac system files
+.DS_Store
