@@ -7,6 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+<<<<<<< HEAD
 <h2>tomcat is working sucessfully</h2>
+=======
+<h1>tomcat is working sucessfully</h1>
+<h2>thankyou</h2>
+
+<%
+for (int i = 1; i<=10; i++) {
+%>
+
+<h1><%=i%>HELLO WORLD</h1>
+
+<%
+}
+%>
+>>>>>>> master
 </body>
 </html>

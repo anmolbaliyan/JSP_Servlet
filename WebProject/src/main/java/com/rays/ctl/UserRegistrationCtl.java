@@ -39,7 +39,7 @@ public class UserRegistrationCtl extends HttpServlet {
 		String dob = request.getParameter("dob");
 
 		try {
-			bean.setId(12);
+			
 			bean.setFirstname(fname);
 			bean.setLastname(lname);
 			bean.setLogin(login);
@@ -47,7 +47,9 @@ public class UserRegistrationCtl extends HttpServlet {
 			bean.setDob(sdf.parse(dob));
 
 			model.add(bean);
+			request.setAttribute("successMsg", "user registration successfully");
 		} catch (Exception e) {
+			request.setAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();
 		}
 

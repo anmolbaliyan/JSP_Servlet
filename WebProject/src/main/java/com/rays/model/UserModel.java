@@ -8,18 +8,36 @@ import java.util.ResourceBundle;
 
 import com.rays.bean.UserBean;
 import com.rays.exception.DuplicateRecordException;
+import com.rays.util.JDBCDataSource;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 public class UserModel {
 	
-	ResourceBundle rb = ResourceBundle.getBundle("com.rays.bundle.app");
+	/*ResourceBundle rb = ResourceBundle.getBundle("com.rays.bundle.app");
 
 	String url = rb.getString("url");
 	String driver = rb.getString("driver");
 	String username = rb.getString("username");
-	String password = rb.getString("password");
+	String password = rb.getString("password");*/
+	
+	public int nextPk() throws Exception {
+
+		int pk = 0;
+
+		Connection conn = JDBCDataSource.getConnection();
+
+		PreparedStatement pstmt = conn.prepareStatement("select max(id) from st_user");
+
+		ResultSet rs = pstmt.executeQuery();
+
+		while (rs.next()) {
+			pk = rs.getInt(1);
+		}
+
+		return pk + 1;
+	}
 
 	public int add(UserBean bean) throws Exception {
 
@@ -28,13 +46,12 @@ public class UserModel {
 			throw new DuplicateRecordException("email id already exists");
 		}
 
-		Class.forName(driver);
 
-		Connection conn = DriverManager.getConnection(url, username, password);
+		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement("insert into st_user values(?,?,?,?,?,?)");
 
-		pstmt.setInt(1, bean.getId());
+		pstmt.setInt(1, nextPk());
 		pstmt.setString(2, bean.getFirstname());
 		pstmt.setString(3, bean.getLastname());
 		pstmt.setString(4, bean.getLogin());
@@ -51,9 +68,7 @@ public class UserModel {
 
 	public void update(UserBean bean) throws Exception {
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/advance_java", "root", "1234567890");
+		Connection conn = JDBCDataSource.getConnection();
 
 		PreparedStatement pstmt = conn.prepareStatement(
 				"update st_user set firstname = ?, lastname = ?, login = ?, password = ?, dob = ? where id = ?");
