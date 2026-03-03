@@ -1,6 +1,5 @@
 <%@page import="com.rays.bean.UserBean"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +15,8 @@
 	if (userBean != null) {
 	%>
 	<h3><%="Hii, " + userBean.getFirstname()%></h3>
+	<a href="UserCtl">Add User</a> |
+	<a href="UserListCtl">User list</a> |
 	<a href="LoginCtl?operation=logout">Logout</a> 
 	<%
 	} else {

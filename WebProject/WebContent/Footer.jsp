@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,7 @@
 <body>
 	<hr>
 	<center>
-		<h3>Â© 2026 Copyright rights are with Anmol</h3>
+		<h3>© 2026 Copyright rights are with Anmol</h3>
 	</center>
 </body>
 </html>
