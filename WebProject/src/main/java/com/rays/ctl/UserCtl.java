@@ -21,6 +21,21 @@ public class UserCtl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+
+		UserModel model = new UserModel();
+		UserBean bean = new UserBean();
+
+		String id = request.getParameter("id");
+
+		if (id != null) {
+			try {
+				bean = model.findByPk(Integer.parseInt(id));
+				request.setAttribute("bean", bean);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		RequestDispatcher rd = request.getRequestDispatcher("UserView.jsp");
 		rd.forward(request, response);
 

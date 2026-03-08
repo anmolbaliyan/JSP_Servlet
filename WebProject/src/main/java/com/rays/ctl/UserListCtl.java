@@ -19,17 +19,16 @@ public class UserListCtl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List <UserBean> list = null; 
+		List<UserBean> list = null;
 		UserModel model = new UserModel();
-		
+
 		try {
 			list = model.search(null);
 			request.setAttribute("list", list);
 		} catch (Exception e) {
-			
 			e.printStackTrace();
 		}
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("UserListView.jsp");
 		rd.forward(request, response);
 	}
