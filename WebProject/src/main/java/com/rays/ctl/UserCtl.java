@@ -30,6 +30,8 @@ public class UserCtl extends HttpServlet {
 			throws ServletException, IOException {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String op = request.getParameter("operation");
+
 
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
@@ -47,8 +49,14 @@ public class UserCtl extends HttpServlet {
 			bean.setPassword(password);
 			bean.setDob(sdf.parse(dob));
 
-			model.add(bean);
-			request.setAttribute("successMsg", "user added successfully");
+			if (op.equals("update")) {
+				bean.setId(Integer.parseInt(request.getParameter("id")));
+				model.update(bean);
+				request.setAttribute("successMsg", "user updated successfully");
+			} else {
+				model.add(bean);
+				request.setAttribute("successMsg", "user added successfully");
+			}
 		} catch (Exception e) {
 			request.setAttribute("errorMsg", e.getMessage());
 			e.printStackTrace();

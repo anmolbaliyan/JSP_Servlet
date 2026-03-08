@@ -12,6 +12,7 @@
 	<%
 	String smsg = (String) request.getAttribute("successMsg");
 	String emsg = (String) request.getAttribute("errorMsg");
+	UserBean bean = (UserBean) request.getAttribute("bean");
 	%>
 
 	<div align="center">
@@ -20,36 +21,45 @@
 		<h3 style="color: green;"><%=smsg != null ? smsg : ""%></h3>
 		<h3 style="color: red;"><%=emsg != null ? emsg : ""%></h3>
 
-		<form action="UserCtl" method="post">
+		<form action="UserCtl.do" method="post">
+			<input type="hidden" value="<%=bean != null ? bean.getId() : ""%>"
+				name="id">
 
 			<table>
 				<tr>
 					<th>FirstName</th>
-					<td><input type="text" value="" name="firstName"
-						placeholder="enter firstName"></td>
+					<td><input type="text"
+						value="<%=bean != null ? bean.getFirstname() : ""%>"
+						name="firstName" placeholder="enter firstName"></td>
 				</tr>
 				<tr>
 					<th>LastName</th>
-					<td><input type="text" value="" name="lastName"
-						placeholder="enter lastName"></td>
+					<td><input type="text"
+						value="<%=bean != null ? bean.getLastname() : ""%>"
+						name="lastName" placeholder="enter lastName"></td>
 				</tr>
 				<tr>
 					<th>Login</th>
-					<td><input type="email" value="" name="login"
+					<td><input type="email"
+						value="<%=bean != null ? bean.getLogin() : ""%>" name="login"
 						placeholder="enter your login"></td>
 				</tr>
 				<tr>
 					<th>Password</th>
-					<td><input type="password" value="" name="password"
-						placeholder="enter your password"></td>
+					<td><input type="password"
+						value="<%=bean != null ? bean.getPassword() : ""%>"
+						name="password" placeholder="enter your password"></td>
 				</tr>
 				<tr>
 					<th>Dob</th>
-					<td><input type="date" value="" name="dob" style="width: 98%"></td>
+					<td><input type="date"
+						value="<%=bean != null ? bean.getDob() : ""%>" name="dob"
+						style="width: 98%"></td>
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit" value="save"></td>
+					<td><input type="submit" name="operation"
+						value="<%=bean != null ? "update" : "save"%>"></td>
 				</tr>
 			</table>
 
