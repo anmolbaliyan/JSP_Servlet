@@ -16,7 +16,7 @@ import com.rays.model.UserModel;
 /**
  * Servlet implementation class UserCtl
  */
-@WebServlet("/UserCtl")
+@WebServlet("/UserCtl.do")
 public class UserCtl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
